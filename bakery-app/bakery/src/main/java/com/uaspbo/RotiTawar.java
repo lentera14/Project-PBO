@@ -6,7 +6,6 @@ import com.uaspbo.Interface.FillingInterface;
 
 public class RotiTawar extends Roti implements FillingInterface {
   private int variant;
-  private double jumlahPesanan;
   private double ratioHarga;
 
   void inputPesanan(Integer a) {
@@ -37,7 +36,7 @@ public class RotiTawar extends Roti implements FillingInterface {
     } else if (variant == 2) {
       Double[] keju = { 80.0, this.hitungKeju(80.0) };
 
-      totalFilling.put("Red Bean", keju);
+      totalFilling.put("Keju", keju);
       totalFilling.put("total", keju);
 
     } else {
@@ -88,8 +87,8 @@ public class RotiTawar extends Roti implements FillingInterface {
     });
     System.out.println("Total             : " + (totalFilling.get("total")[0]));
     System.out.println("============= Harga Bahan ===========");
-    System.out.println("Harga total       : " + ((double) Math.round(biayaDasar.get("totalBiaya") * 100) / 100));
-    System.out.println("Harga /pcs        : " + ((double) Math.round(biayaDasar.get("biayaPcs") * 100) / 100));
+    System.out.println("Harga /pcs        : " + ((double) Math.round(totalHarga * 100) / 100));
+    System.out.println("Harga total       : " + ((double) Math.round(totalHarga * this.jumlahPesanan * 100) / 100));
     System.out.println("==== Harga Jual Keuntungan (50%) ====");
     System.out.println("Harga jual /pcs   : " + ((double) Math.round(hargaJual * 100) / 100));
     System.out.println("Harga jual total  : " + ((double) Math.round(hargaJualTotal * 100) / 100));

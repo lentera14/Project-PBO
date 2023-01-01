@@ -6,7 +6,6 @@ import com.uaspbo.Interface.ToppingInterface;
 
 public class Pizza extends Roti implements ToppingInterface {
   private int variant;
-  private double jumlahPesanan;
   private double ratioHarga;
 
   void inputPesanan(Integer a) {
@@ -90,8 +89,8 @@ public class Pizza extends Roti implements ToppingInterface {
     });
     System.out.println("Total             : " + (totalTopping.get("total")[0]));
     System.out.println("============= Harga Bahan ===========");
-    System.out.println("Harga total       : " + ((double) Math.round(biayaDasar.get("totalBiaya") * 100) / 100));
-    System.out.println("Harga /pcs        : " + ((double) Math.round(biayaDasar.get("biayaPcs") * 100) / 100));
+    System.out.println("Harga /pcs        : " + ((double) Math.round(totalHarga * 100) / 100));
+    System.out.println("Harga total       : " + ((double) Math.round(totalHarga * this.jumlahPesanan * 100) / 100));
     System.out.println("==== Harga Jual Keuntungan (50%) ====");
     System.out.println("Harga jual /pcs   : " + ((double) Math.round(hargaJual * 100) / 100));
     System.out.println("Harga jual total  : " + ((double) Math.round(hargaJualTotal * 100) / 100));

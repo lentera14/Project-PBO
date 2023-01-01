@@ -20,6 +20,7 @@ public class Roti extends HitungRotiAbstract implements BahanRotiInterface, Baha
   public double beratEsBatu;
   public double beratTotal;
   public double jumlahRoti;
+  public double jumlahPesanan;
 
   
   @Override
@@ -66,19 +67,19 @@ public class Roti extends HitungRotiAbstract implements BahanRotiInterface, Baha
 
   @Override
   public Map<String, Double> hitungBiayaDasar() {
-    Double a = beratTerigu / terigu[0] * terigu[1];
-    Double b = beratGula / gula[0] * gula[1];
-    Double c = beratButter / butter[0] * butter[1];
-    Double d = beratRagi / ragi[0] * ragi[1];
-    Double e = beratSusuBubuk / susuBubuk[0] * susuBubuk[1];
-    Double f = beratSusuCair / susuCair[0] * susuCair[1];
-    Double g = beratTelur / telur[0] * telur[1];
-    Double h = beratEsBatu / esBatu[0] * esBatu[1];
+    Double a = this.beratTerigu / terigu[0] * terigu[1];
+    Double b = this.beratGula / gula[0] * gula[1];
+    Double c = this.beratButter / butter[0] * butter[1];
+    Double d = this.beratRagi / ragi[0] * ragi[1];
+    Double e = this.beratSusuBubuk / susuBubuk[0] * susuBubuk[1];
+    Double f = this.beratSusuCair / susuCair[0] * susuCair[1];
+    Double g = this.beratTelur / telur[0] * telur[1];
+    Double h = this.beratEsBatu / esBatu[0] * esBatu[1];
     
     Map<String, Double> total = new HashMap<String, Double>();
 
     Double totalBiaya = a + b + c + d + e + f + g + h;
-    Double biayaPcs = totalBiaya / jumlahRoti;
+    Double biayaPcs = totalBiaya / this.jumlahPesanan;
 
     total.put("totalBiaya", totalBiaya);
     total.put("biayaPcs", biayaPcs);
